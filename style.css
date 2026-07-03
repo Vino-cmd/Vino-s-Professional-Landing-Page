@@ -1,0 +1,604 @@
+/* ============================================
+   VINICIUS ARNAUD LEONEL — LANDING PAGE PESSOAL
+   Paleta baseada no moodboard pessoal:
+   azul pastel / amarelo pastel / marrom mocha / rosa choque / verde floresta
+   sobre fundo azul-marinho profundo
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap');
+
+:root {
+  /* Cores principais */
+  --color-bg: #0B0F2E;
+  --color-bg-alt: #131A44;
+  --color-surface: #1B2350;
+  --color-mocha: #423732;
+  --color-mocha-light: #5A4C45;
+
+  --color-blue: #75B0FF;
+  --color-yellow: #FFF0A0;
+  --color-pink: #FA80D1;
+  --color-green: #4CAF3C;
+  --color-green-dark: #287B1D;
+
+  --color-text: #F5F1E8;
+  --color-text-muted: #A9AFC9;
+  --color-text-dark: #1A1E3A;
+
+  /* Tipografia */
+  --font-display: 'Baloo 2', cursive;
+  --font-body: 'Nunito', sans-serif;
+
+  /* Espaçamento */
+  --gap-section: clamp(3rem, 6vw, 6rem);
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --radius-sm: 10px;
+
+  --max-width: 1120px;
+}
+
+/* ============ RESET ============ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+section, header, footer {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.wrapper {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-blue);
+  outline-offset: 3px;
+}
+
+/* Fundo com leve textura de manchas radiais nas cores da paleta */
+body {
+  background-image:
+    radial-gradient(circle at 85% 8%, rgba(117, 176, 255, 0.10), transparent 40%),
+    radial-gradient(circle at 8% 85%, rgba(250, 128, 209, 0.08), transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(255, 240, 160, 0.04), transparent 60%);
+  background-attachment: fixed;
+}
+
+/* ============ HEADER ============ */
+.header {
+  padding-top: clamp(2.5rem, 5vw, 4.5rem);
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.header__inner {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.header__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-green);
+  background: rgba(76, 175, 60, 0.12);
+  border: 1px solid rgba(76, 175, 60, 0.35);
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  margin-bottom: 1.4rem;
+}
+
+.header__name {
+  font-size: clamp(2.4rem, 5.5vw, 3.6rem);
+  color: var(--color-text);
+  margin-bottom: 0.7rem;
+}
+
+.header__name span {
+  color: var(--color-blue);
+}
+
+.header__tagline {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+  color: var(--color-yellow);
+  max-width: 34ch;
+  margin-bottom: 2rem;
+}
+
+/* Navegação estilo "pílulas coloridas" — eco direto do moodboard do Vini */
+.nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.nav__link {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.55rem 1.2rem;
+  border-radius: 999px;
+  color: var(--color-text-dark);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: inline-block;
+}
+
+.nav__link:hover,
+.nav__link:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+}
+
+.nav__link--blue   { background: var(--color-blue); }
+.nav__link--yellow { background: var(--color-yellow); }
+.nav__link--pink   { background: var(--color-pink); }
+.nav__link--green  { background: var(--color-green); color: var(--color-text); }
+.nav__link--mocha  { background: var(--color-mocha-light); color: var(--color-text); }
+
+/* Foto no header */
+.header__photo-frame {
+  position: relative;
+  justify-self: center;
+}
+
+.header__photo {
+  width: min(320px, 100%);
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 5px solid var(--color-blue);
+  box-shadow: 0 20px 50px rgba(117, 176, 255, 0.25), 0 0 0 10px rgba(117, 176, 255, 0.06);
+}
+
+.header__photo-tag {
+  position: absolute;
+  bottom: -14px;
+  right: -14px;
+  background: var(--color-pink);
+  color: var(--color-text-dark);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  transform: rotate(-4deg);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.3);
+}
+
+/* ============ SEÇÕES — regra geral ============ */
+.section {
+  padding-top: var(--gap-section);
+  padding-bottom: var(--gap-section);
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.section__head {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+/* Bolinha colorida marcadora de seção — mesma linguagem do moodboard */
+.dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 5px rgba(255,255,255,0.05);
+}
+
+.dot--blue   { background: var(--color-blue); }
+.dot--yellow { background: var(--color-yellow); }
+.dot--pink   { background: var(--color-pink); }
+.dot--green  { background: var(--color-green); }
+.dot--mocha  { background: var(--color-mocha-light); }
+
+.section__title {
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+  color: var(--color-text);
+}
+
+.section__eyebrow {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* ============ SOBRE MIM ============ */
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.about__text p {
+  color: var(--color-text-muted);
+  margin-bottom: 1.1rem;
+  max-width: 72ch;
+}
+
+.about__quote {
+  margin-top: 1.8rem;
+  padding: 1.6rem 1.8rem;
+  background: linear-gradient(135deg, rgba(117,176,255,0.12), rgba(250,128,209,0.10));
+  border-left: 4px solid var(--color-blue);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  color: var(--color-yellow);
+}
+
+/* ============ HABILIDADES ============ */
+.skills__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.skill {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--color-surface);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 0.75rem 1.2rem;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.skill:hover {
+  transform: translateY(-3px);
+}
+
+.skill__chip {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.skill--blue   .skill__chip { background: var(--color-blue); }
+.skill--yellow .skill__chip { background: var(--color-yellow); }
+.skill--pink   .skill__chip { background: var(--color-pink); }
+.skill--green  .skill__chip { background: var(--color-green); }
+
+.skills__note {
+  margin-top: 1.4rem;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+/* ============ PROJETOS ============ */
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.6rem;
+}
+
+.project-card {
+  background: var(--color-mocha);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+}
+
+.project-card__label {
+  align-self: flex-start;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+}
+
+.project-card__label--real  { background: var(--color-green); color: var(--color-text); }
+.project-card__label--ficticio { background: var(--color-yellow); color: var(--color-text-dark); }
+
+.project-card h3 {
+  font-size: 1.3rem;
+  color: var(--color-text);
+}
+
+.project-card p {
+  color: rgba(245, 241, 232, 0.75);
+  font-size: 0.98rem;
+  flex-grow: 1;
+}
+
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-sm);
+  background: rgba(255,255,255,0.08);
+  color: var(--color-text);
+}
+
+/* ============ IDIOMAS ============ */
+.languages__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.4rem;
+}
+
+.language {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: 1.2rem 1.4rem;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.language__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.6rem;
+}
+
+.language__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.language__level {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.language__bar {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  overflow: hidden;
+}
+
+.language__bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--color-green);
+}
+
+.language--intermediario .language__bar-fill {
+  background: var(--color-yellow);
+}
+
+/* ============ ASIDE — EXTRAS ============ */
+.extras {
+  background: var(--color-bg-alt);
+}
+
+.extras__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+
+.extras__hobbies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.hobby {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 0.6rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.extras__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.social__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.social__link {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-weight: 700;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  background: rgba(255,255,255,0.05);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.social__link:hover {
+  transform: translateX(4px);
+}
+
+.social__link--instagram:hover { background: rgba(250,128,209,0.18); }
+.social__link--github:hover { background: rgba(117,176,255,0.18); }
+
+.social__icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* ============ FOOTER ============ */
+.footer {
+  background: var(--color-bg-alt);
+  padding-top: 3rem;
+  padding-bottom: 2.5rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.2rem;
+}
+
+.footer__contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.4rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.footer__contact a:hover {
+  color: var(--color-blue);
+}
+
+.footer__signature {
+  height: 60px;
+  width: auto;
+  filter: drop-shadow(0 0 12px rgba(117, 176, 255, 0.45));
+  opacity: 0.9;
+}
+
+.footer__copy {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+/* ============ RESPONSIVO ============ */
+@media (max-width: 860px) {
+  .header__inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .header__eyebrow,
+  .nav__list {
+    justify-content: center;
+  }
+
+  .header__photo-frame {
+    order: -1;
+  }
+
+  .projects__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .extras__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .extras__hobbies {
+    justify-content: center;
+  }
+
+  .social__list {
+    align-items: center;
+  }
+
+  .social__link {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .header__photo {
+    width: 240px;
+  }
+
+  .nav__link {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Respeita usuários que preferem menos animação */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    transition: none !important;
+  }
+}
